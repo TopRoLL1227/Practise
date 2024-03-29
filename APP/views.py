@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 
 # Create your views here.
 
-zodiac_list = {
+zodiac_dict = {
     'leo': 'Лев',
     'cancer': 'Рак'
 
@@ -11,7 +11,7 @@ zodiac_list = {
 
 
 def get_describe_zodiac(request, describes_zodiac):
-    description = zodiac_list.get(describes_zodiac, None)
+    description = zodiac_dict.get(describes_zodiac, None)
     if description:
         return HttpResponse(description)
     else:
@@ -19,4 +19,8 @@ def get_describe_zodiac(request, describes_zodiac):
 
 
 def get_describe_zodiac_by_number(request, describes_zodiac):
-    return HttpResponse(f"Номер - {describes_zodiac}")
+    zodiac_list = list(zodiac_dict)
+    if describes_zodiac > len(zodiac_list):
+        return HttpResponseNotFound(f'Not Found')
+    zodiac = zodiac_list[describes_zodiac - 1]
+    return HttpResponseRedirect(f'/horoscope/{zodiac}')
