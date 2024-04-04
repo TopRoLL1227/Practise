@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title is {{title}}</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
+{% block title %}
+Title is {{title}}
+{% endblock %}
+
+{% block content %}
     {% if describes is None %}
         <h2>Unknown - {{describes}}</h2>
     {% else %}
         <h2>This is good one - {{describes}}</h2>
     {% endif %}
 
-    <h2>This is Leo</h2>
+    <h2>This is {{describes}}</h2>
     <h2>July</h2>
     <p>{{describes}}</p>
-</body>
-</html>
+{% endblock %}

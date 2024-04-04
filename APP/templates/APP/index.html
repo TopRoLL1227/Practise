@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <ul>
-        {% for sign in description %}
+{% extends 'base.html' %}
+
+
+{% block title%}
+Title
+{% endblock %}
+
+{% block content %}
+    {% for sign in description %}
         <li><a href="{% url 'name1' sign %}"> {{ sign }} </a></li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+    {% endfor %}
+{% endblock %}
