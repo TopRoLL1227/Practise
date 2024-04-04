@@ -6,6 +6,7 @@ Title
 {% endblock %}
 
 {% block content %}
+    {% include 'include/navbar.html' %}
     {% for sign in description %}
         <li><a href="{% url 'name1' sign %}"> {{ sign }} </a></li>
     {% endfor %}

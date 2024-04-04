@@ -4,7 +4,9 @@
 Title is {{title}}
 {% endblock %}
 
+{% block add_css %} <link rel="stylesheet" href="/static/base.css"> {% endblock %}
 {% block content %}
+    <p> </p>
     {% if describes is None %}
         <h2>Unknown - {{describes}}</h2>
     {% else %}
