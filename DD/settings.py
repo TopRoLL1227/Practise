@@ -78,10 +78,15 @@ WSGI_APPLICATION = 'DD.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'DD_db',
+        'USER': 'tester',
+        'PASSWORD': '898989',
+        'HOST': 'localhost',   # Якщо база даних знаходиться на локальному сервері
+        'PORT': '',            # Залиште порт порожнім, якщо використовуєте стандартний порт
     }
 }
+
 
 
 # Password validation
